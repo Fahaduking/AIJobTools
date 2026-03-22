@@ -10,253 +10,264 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #07070a; --s1: #111118; --s2: #18181f;
-      --b: rgba(255,255,255,0.07); --bb: rgba(255,255,255,0.14);
-      --t: #f0effe; --tm: #8b8a9e; --td: #4a4963;
-      --v: #7c5cfc; --vl: #a78bfa; --cy: #22d3ee;
-      --em: #10b981; --ro: #fb7185; --am: #fbbf24; --or: #f97316;
-      --grad: linear-gradient(135deg,#7c5cfc 0%,#22d3ee 100%);
-      --fd: 'Syne',sans-serif; --fb: 'DM Sans',sans-serif; --r: 16px;
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--t); font-family: var(--fb); font-size: 16px; line-height: 1.65; overflow-x: hidden; }
-    .orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; opacity: 0.15; }
-    .o1 { width: 600px; height: 600px; background: #7c5cfc; top: -200px; left: -100px; }
-    .o2 { width: 500px; height: 500px; background: #22d3ee; top: 40vh; right: -150px; }
-    .o3 { width: 400px; height: 400px; background: #10b981; bottom: 10vh; left: 20%; }
-    nav { position: fixed; top:0; left:0; right:0; z-index:100; padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:68px; background:rgba(7,7,10,0.85); backdrop-filter:blur(20px); border-bottom:1px solid var(--b); }
-    .logo { font-family:var(--fd); font-size:20px; font-weight:800; background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; text-decoration:none; }
-    .nav-links { display:flex; align-items:center; gap:28px; list-style:none; }
-    .nav-links a { color:var(--tm); text-decoration:none; font-size:14px; transition:color 0.2s; }
-    .nav-links a:hover { color:var(--t); }
-    .nav-cta { background:var(--grad)!important; color:#fff!important; padding:8px 18px; border-radius:8px; font-weight:500!important; }
-    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
-    .hamburger span { display:block; width:24px; height:2px; background:var(--t); border-radius:2px; }
-    .hero { position:relative; z-index:1; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:120px 5% 80px; }
-    .badge { display:inline-flex; align-items:center; gap:8px; background:rgba(124,92,252,0.15); border:1px solid rgba(124,92,252,0.35); color:var(--vl); padding:6px 16px; border-radius:100px; font-size:13px; font-weight:500; margin-bottom:28px; }
-    .dot { width:6px; height:6px; background:var(--vl); border-radius:50%; animation:pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
-    h1 { font-family:var(--fd); font-size:clamp(38px,7vw,82px); font-weight:800; line-height:1.05; letter-spacing:-2px; max-width:900px; }
-    .grad { background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-    .sub { font-size:clamp(16px,2vw,20px); color:var(--tm); max-width:540px; margin:24px auto 0; font-weight:300; }
-    .actions { display:flex; gap:16px; flex-wrap:wrap; justify-content:center; margin-top:40px; }
-    .btn-p { background:var(--grad); color:#fff; padding:14px 32px; border-radius:10px; font-size:16px; font-weight:500; text-decoration:none; box-shadow:0 0 40px rgba(124,92,252,0.3); transition:transform 0.2s,box-shadow 0.2s; }
-    .btn-p:hover { transform:translateY(-2px); box-shadow:0 8px 40px rgba(124,92,252,0.5); }
-    .btn-s { background:var(--s2); color:var(--t); padding:14px 32px; border-radius:10px; font-size:16px; text-decoration:none; border:1px solid var(--bb); transition:transform 0.2s,border-color 0.2s; }
-    .btn-s:hover { transform:translateY(-2px); border-color:rgba(255,255,255,0.28); }
-    .stats { display:flex; gap:40px; justify-content:center; flex-wrap:wrap; margin-top:60px; padding-top:40px; border-top:1px solid var(--b); }
-    .sn { font-family:var(--fd); font-size:30px; font-weight:800; background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-    .sl { font-size:13px; color:var(--tm); margin-top:2px; }
-    section { position:relative; z-index:1; }
-    .container { max-width:1100px; margin:0 auto; padding:0 5%; }
-    .sec-label { display:inline-block; font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--vl); margin-bottom:14px; }
-    .sec-title { font-family:var(--fd); font-size:clamp(26px,4vw,44px); font-weight:800; letter-spacing:-1px; line-height:1.1; margin-bottom:16px; }
-    .sec-sub { color:var(--tm); font-size:17px; max-width:500px; font-weight:300; }
-    .profs { padding:100px 0; }
-    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:56px; }
-    .card { background:var(--s1); border:1px solid var(--b); border-radius:var(--r); padding:28px; text-decoration:none; color:var(--t); display:flex; flex-direction:column; gap:14px; transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s; position:relative; overflow:hidden; }
-    .card::before { content:''; position:absolute; inset:0; opacity:0; transition:opacity 0.3s; border-radius:var(--r); }
-    .card:hover { transform:translateY(-4px); border-color:var(--bb); }
-    .card:hover::before { opacity:1; }
-    .c1::before{background:linear-gradient(135deg,rgba(124,92,252,0.13),rgba(34,211,238,0.07))} .c1:hover{box-shadow:0 8px 40px rgba(124,92,252,0.15)}
-    .c2::before{background:linear-gradient(135deg,rgba(16,185,129,0.13),rgba(34,211,238,0.07))} .c2:hover{box-shadow:0 8px 40px rgba(16,185,129,0.15)}
-    .c3::before{background:linear-gradient(135deg,rgba(251,113,133,0.13),rgba(251,191,36,0.07))} .c3:hover{box-shadow:0 8px 40px rgba(251,113,133,0.15)}
-    .c4::before{background:linear-gradient(135deg,rgba(249,115,22,0.13),rgba(251,113,133,0.07))} .c4:hover{box-shadow:0 8px 40px rgba(249,115,22,0.15)}
-    .c5::before{background:linear-gradient(135deg,rgba(167,139,250,0.13),rgba(124,92,252,0.07))} .c5:hover{box-shadow:0 8px 40px rgba(167,139,250,0.15)}
-    .c6::before{background:linear-gradient(135deg,rgba(34,211,238,0.13),rgba(16,185,129,0.07))} .c6:hover{box-shadow:0 8px 40px rgba(34,211,238,0.15)}
-    .cc { position:relative; z-index:1; }
-    .ci { width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:4px; }
-    .i1{background:rgba(124,92,252,0.2)} .i2{background:rgba(16,185,129,0.2)} .i3{background:rgba(251,113,133,0.2)}
-    .i4{background:rgba(249,115,22,0.2)} .i5{background:rgba(167,139,250,0.2)} .i6{background:rgba(34,211,238,0.2)}
-    .ct { font-family:var(--fd); font-size:20px; font-weight:700; }
-    .cd { font-size:14px; color:var(--tm); line-height:1.6; }
-    .pills { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
-    .pill { font-size:11px; padding:3px 10px; border-radius:100px; border:1px solid var(--bb); color:var(--tm); }
-    .arr { display:flex; align-items:center; gap:4px; font-size:13px; font-weight:500; margin-top:auto; }
-    .c1 .arr{color:var(--vl)} .c2 .arr{color:var(--em)} .c3 .arr{color:var(--ro)}
-    .c4 .arr{color:var(--or)} .c5 .arr{color:var(--vl)} .c6 .arr{color:var(--cy)}
-    .tools-sec { padding:80px 0 100px; }
-    .tools-head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:48px; flex-wrap:wrap; gap:20px; }
-    .tools-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
-    .tc { background:var(--s1); border:1px solid var(--b); border-radius:var(--r); padding:22px 24px; display:flex; align-items:center; gap:18px; text-decoration:none; color:var(--t); transition:border-color 0.2s,transform 0.2s; }
-    .tc:hover { border-color:var(--bb); transform:translateY(-2px); }
-    .tl { width:50px; height:50px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; border:1px solid var(--b); background:var(--s2); }
-    .ti { flex:1; min-width:0; }
-    .tn { font-family:var(--fd); font-size:16px; font-weight:700; }
-    .tt { font-size:13px; color:var(--tm); margin-top:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-    .tbadge { font-size:11px; padding:4px 10px; border-radius:100px; font-weight:600; flex-shrink:0; }
-    .bf{background:rgba(16,185,129,0.15);color:#10b981;border:1px solid rgba(16,185,129,0.25)}
-    .bp{background:rgba(251,191,36,0.12);color:#fbbf24;border:1px solid rgba(251,191,36,0.25)}
-    .bb2{background:rgba(124,92,252,0.15);color:#a78bfa;border:1px solid rgba(124,92,252,0.25)}
-    .why { padding:80px 0; }
-    .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px; }
-    .wi { padding:28px; background:var(--s1); border:1px solid var(--b); border-radius:var(--r); }
-    .wicon { width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:16px; }
-    .wi h3 { font-family:var(--fd); font-size:18px; font-weight:700; margin-bottom:8px; }
-    .wi p { font-size:14px; color:var(--tm); line-height:1.7; }
-    .nl { padding:80px 0 120px; }
-    .nl-box { background:linear-gradient(135deg,rgba(124,92,252,0.12),rgba(34,211,238,0.08)); border:1px solid rgba(124,92,252,0.25); border-radius:24px; padding:64px 48px; text-align:center; position:relative; overflow:hidden; }
-    .nl-box::before { content:''; position:absolute; top:-50%; left:50%; transform:translateX(-50%); width:500px; height:300px; background:radial-gradient(ellipse,rgba(124,92,252,0.15),transparent 70%); pointer-events:none; }
-    .nl-box h2 { font-family:var(--fd); font-size:clamp(24px,4vw,40px); font-weight:800; letter-spacing:-1px; position:relative; }
-    .nl-box p { color:var(--tm); margin:12px 0 36px; font-size:16px; position:relative; }
-    .form { display:flex; gap:12px; max-width:460px; margin:0 auto; position:relative; }
-    .form input { flex:1; background:rgba(255,255,255,0.06); border:1px solid var(--bb); border-radius:10px; padding:13px 18px; color:var(--t); font-family:var(--fb); font-size:15px; outline:none; transition:border-color 0.2s; }
-    .form input::placeholder { color:var(--td); }
-    .form input:focus { border-color:var(--v); }
-    .form button { background:var(--grad); color:#fff; border:none; padding:13px 22px; border-radius:10px; font-family:var(--fb); font-size:15px; font-weight:500; cursor:pointer; white-space:nowrap; transition:opacity 0.2s,transform 0.2s; }
-    .form button:hover { opacity:0.88; transform:translateY(-1px); }
-    footer { position:relative; z-index:1; padding:40px 5%; border-top:1px solid var(--b); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
-    .flogo { font-family:var(--fd); font-size:18px; font-weight:800; background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; text-decoration:none; }
-    .flinks { display:flex; gap:24px; list-style:none; }
-    .flinks a { color:var(--tm); text-decoration:none; font-size:14px; transition:color 0.2s; }
-    .flinks a:hover { color:var(--t); }
-    .fcopy { font-size:13px; color:var(--td); }
-    .reveal { opacity:0; transform:translateY(30px); transition:opacity 0.6s ease,transform 0.6s ease; }
-    .reveal.on { opacity:1; transform:translateY(0); }
-    @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:repeat(2,1fr)}.tools-grid{grid-template-columns:1fr}.nav-links{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:var(--s1);padding:24px 5%;border-bottom:1px solid var(--b);gap:20px;z-index:99}}
-    @media(max-width:600px){.grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.stats{gap:24px}.nl-box{padding:40px 24px}.form{flex-direction:column}footer{flex-direction:column;align-items:flex-start}}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#07070a;--s1:#111118;--s2:#18181f;--b1:rgba(255,255,255,0.07);--b2:rgba(255,255,255,0.14);--t1:#f0effe;--t2:#8b8a9e;--t3:#4a4963;--violet:#7c5cfc;--vl:#a78bfa;--cyan:#22d3ee;--green:#10b981;--rose:#fb7185;--amber:#fbbf24;--grad:linear-gradient(135deg,#7c5cfc,#22d3ee);--fd:'Syne',sans-serif;--fb:'DM Sans',sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:16px;line-height:1.65;overflow-x:hidden}
+    .orb{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0;opacity:.15}
+    .o1{width:600px;height:600px;background:#7c5cfc;top:-200px;left:-100px}
+    .o2{width:500px;height:500px;background:#22d3ee;top:40vh;right:-150px}
+    .o3{width:400px;height:400px;background:#10b981;bottom:10vh;left:20%}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;background:rgba(7,7,10,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--b1)}
+    .logo{font-family:var(--fd);font-size:20px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{color:var(--t2);text-decoration:none;font-size:14px;transition:color .2s}
+    .nav-links a:hover{color:var(--t1)}
+    .nav-cta{background:var(--grad);color:#fff!important;padding:8px 20px;border-radius:8px;font-weight:500!important}
+    .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .ham span{display:block;width:24px;height:2px;background:var(--t1);border-radius:2px}
+    .hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,92,252,.15);border:1px solid rgba(124,92,252,.35);color:var(--vl);padding:6px 16px;border-radius:100px;font-size:13px;font-weight:500;margin-bottom:28px;animation:fadeUp .6s ease both}
+    .dot{width:6px;height:6px;background:var(--vl);border-radius:50%;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+    .hero h1{font-family:var(--fd);font-size:clamp(38px,7vw,84px);font-weight:800;line-height:1.05;letter-spacing:-2px;max-width:900px;animation:fadeUp .6s .1s ease both}
+    .grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-sub{font-size:clamp(16px,2vw,20px);color:var(--t2);max-width:560px;margin:24px auto 0;font-weight:300;animation:fadeUp .6s .2s ease both}
+    .hero-btns{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:40px;animation:fadeUp .6s .3s ease both}
+    .btn-p{background:var(--grad);color:#fff;padding:14px 32px;border-radius:10px;font-size:16px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s;box-shadow:0 0 40px rgba(124,92,252,.3)}
+    .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(124,92,252,.5)}
+    .btn-s{background:var(--s2);color:var(--t1);padding:14px 32px;border-radius:10px;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--b2);transition:border-color .2s,transform .2s}
+    .btn-s:hover{border-color:rgba(255,255,255,.28);transform:translateY(-2px)}
+    .stats{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:60px;padding-top:40px;border-top:1px solid var(--b1);animation:fadeUp .6s .4s ease both}
+    .sn{font-family:var(--fd);font-size:32px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .sl{font-size:13px;color:var(--t2);margin-top:2px}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    section{position:relative;z-index:1}
+    .container{max-width:1100px;margin:0 auto;padding:0 5%}
+    .sec-label{display:inline-block;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--vl);margin-bottom:14px}
+    .sec-title{font-family:var(--fd);font-size:clamp(28px,4vw,46px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:16px}
+    .sec-sub{color:var(--t2);font-size:17px;max-width:520px;font-weight:300}
+    .professions{padding:100px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+    .pc{background:var(--s1);border:1px solid var(--b1);border-radius:16px;padding:28px;text-decoration:none;color:var(--t1);display:flex;flex-direction:column;gap:14px;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative;overflow:hidden}
+    .pc::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;border-radius:16px}
+    .pc:hover{transform:translateY(-4px);border-color:var(--b2)}
+    .pc:hover::before{opacity:1}
+    .c1::before{background:linear-gradient(135deg,rgba(124,92,252,.12),rgba(34,211,238,.07))}.c1:hover{box-shadow:0 8px 40px rgba(124,92,252,.15)}
+    .c2::before{background:linear-gradient(135deg,rgba(16,185,129,.12),rgba(34,211,238,.07))}.c2:hover{box-shadow:0 8px 40px rgba(16,185,129,.15)}
+    .c3::before{background:linear-gradient(135deg,rgba(251,113,133,.12),rgba(251,191,36,.07))}.c3:hover{box-shadow:0 8px 40px rgba(251,113,133,.15)}
+    .c4::before{background:linear-gradient(135deg,rgba(249,115,22,.12),rgba(251,113,133,.07))}.c4:hover{box-shadow:0 8px 40px rgba(249,115,22,.15)}
+    .c5::before{background:linear-gradient(135deg,rgba(167,139,250,.12),rgba(124,92,252,.07))}.c5:hover{box-shadow:0 8px 40px rgba(167,139,250,.15)}
+    .c6::before{background:linear-gradient(135deg,rgba(34,211,238,.12),rgba(16,185,129,.07))}.c6:hover{box-shadow:0 8px 40px rgba(34,211,238,.15)}
+    .cc{position:relative;z-index:1}
+    .ci{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:4px}
+    .i1{background:rgba(124,92,252,.2)}.i2{background:rgba(16,185,129,.2)}.i3{background:rgba(251,113,133,.2)}.i4{background:rgba(249,115,22,.2)}.i5{background:rgba(167,139,250,.2)}.i6{background:rgba(34,211,238,.2)}
+    .ct{font-family:var(--fd);font-size:20px;font-weight:700}
+    .cd{font-size:14px;color:var(--t2);line-height:1.6}
+    .pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+    .pill{font-size:11px;padding:3px 10px;border-radius:100px;border:1px solid var(--b2);color:var(--t2)}
+    .ca{display:flex;align-items:center;gap:4px;font-size:13px;font-weight:500;margin-top:auto}
+    .c1 .ca{color:var(--vl)}.c2 .ca{color:var(--green)}.c3 .ca{color:var(--rose)}.c4 .ca{color:#f97316}.c5 .ca{color:var(--vl)}.c6 .ca{color:var(--cyan)}
+    .tools-sec{padding:80px 0 100px}
+    .tools-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:20px}
+    .tools-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .tc{background:var(--s1);border:1px solid var(--b1);border-radius:16px;padding:22px 24px;display:flex;align-items:center;gap:18px;text-decoration:none;color:var(--t1);transition:border-color .2s,transform .2s}
+    .tc:hover{border-color:var(--b2);transform:translateY(-2px)}
+    .tl{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;border:1px solid var(--b1);background:var(--s2)}
+    .ti{flex:1;min-width:0}
+    .tn{font-family:var(--fd);font-size:16px;font-weight:700}
+    .tt{font-size:13px;color:var(--t2);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .tbg{font-size:11px;padding:4px 10px;border-radius:100px;font-weight:600;flex-shrink:0}
+    .bf{background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.25)}
+    .bp{background:rgba(251,191,36,.12);color:var(--amber);border:1px solid rgba(251,191,36,.25)}
+    .bb{background:rgba(124,92,252,.15);color:var(--vl);border:1px solid rgba(124,92,252,.25)}
+    .why{padding:80px 0}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+    .wi{padding:28px;background:var(--s1);border:1px solid var(--b1);border-radius:16px}
+    .wi-ic{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
+    .wi h3{font-family:var(--fd);font-size:18px;font-weight:700;margin-bottom:8px}
+    .wi p{font-size:14px;color:var(--t2);line-height:1.7}
+    .nl{padding:80px 0 120px}
+    .nlb{background:linear-gradient(135deg,rgba(124,92,252,.12),rgba(34,211,238,.08));border:1px solid rgba(124,92,252,.25);border-radius:24px;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+    .nlb::before{content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(124,92,252,.15),transparent 70%);pointer-events:none}
+    .nlb h2{font-family:var(--fd);font-size:clamp(26px,4vw,42px);font-weight:800;letter-spacing:-1px;position:relative}
+    .nlb p{color:var(--t2);margin:12px 0 36px;font-size:16px;position:relative}
+    .ef{display:flex;gap:12px;max-width:460px;margin:0 auto}
+    .ef input{flex:1;background:rgba(255,255,255,.06);border:1px solid var(--b2);border-radius:10px;padding:13px 18px;color:var(--t1);font-family:var(--fb);font-size:15px;outline:none;transition:border-color .2s}
+    .ef input::placeholder{color:var(--t3)}
+    .ef input:focus{border-color:var(--violet)}
+    .ef button{background:var(--grad);color:#fff;border:none;padding:13px 24px;border-radius:10px;font-family:var(--fb);font-size:15px;font-weight:500;cursor:pointer;white-space:nowrap;transition:opacity .2s,transform .2s}
+    .ef button:hover{opacity:.88;transform:translateY(-1px)}
+    footer{position:relative;z-index:1;padding:40px 5%;border-top:1px solid var(--b1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+    .fl{display:flex;gap:24px;list-style:none}
+    .fl a{color:var(--t2);text-decoration:none;font-size:14px;transition:color .2s}
+    .fl a:hover{color:var(--t1)}
+    .fc{font-size:13px;color:var(--t3)}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:repeat(2,1fr)}.tools-grid{grid-template-columns:1fr}.nav-links{display:none}.ham{display:flex}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:var(--s1);padding:24px 5%;border-bottom:1px solid var(--b1);gap:20px}}
+    @media(max-width:600px){.grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.stats{gap:24px}.nlb{padding:40px 24px}.ef{flex-direction:column}footer{flex-direction:column;align-items:flex-start}}
   </style>
 </head>
 <body>
-  <div class="orb o1"></div>
-  <div class="orb o2"></div>
-  <div class="orb o3"></div>
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+<div class="orb o3"></div>
 
-  <nav>
-    <a href="index.html" class="logo">AIJobTools</a>
-    <ul class="nav-links" id="nav">
-      <li><a href="#profs">By Profession</a></li>
-      <li><a href="#tools">Top Tools</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="free-ai-tools.html">Free Tools</a></li>
-      <li><a href="#nl" class="nav-cta">Get Updates</a></li>
-    </ul>
-    <button class="hamburger" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
-  </nav>
+<nav>
+  <a href="index.html" class="logo">AIJobTools</a>
+  <ul class="nav-links" id="nav">
+    <li><a href="#professions">By Profession</a></li>
+    <li><a href="#tools">Top Tools</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="free-ai-tools.html">Free Tools</a></li>
+    <li><a href="#newsletter" class="nav-cta">Get Updates</a></li>
+  </ul>
+  <button class="ham" id="ham"><span></span><span></span><span></span></button>
+</nav>
 
-  <section class="hero">
-    <div class="badge"><span class="dot"></span>Updated for 2026 · 200+ tools reviewed</div>
-    <h1>The Best AI Tools<br>for <span class="grad">Your Exact Job</span></h1>
-    <p class="sub">Stop wasting time on generic AI lists. We review the exact tools that save real hours for freelancers, teachers, students, marketers, developers and more.</p>
-    <div class="actions">
-      <a href="#profs" class="btn-p">Find Tools for My Job →</a>
-      <a href="free-ai-tools.html" class="btn-s">🎁 Free AI Tools List</a>
+<section class="hero">
+  <div class="badge"><span class="dot"></span>Updated for 2026 · 200+ tools reviewed</div>
+  <h1>The Best AI Tools<br>for <span class="grad">Your Exact Job</span></h1>
+  <p class="hero-sub">Stop wasting time on generic AI lists. We review the exact tools that save real hours for freelancers, teachers, students, marketers, developers and more.</p>
+  <div class="hero-btns">
+    <a href="#professions" class="btn-p">Find Tools for My Job →</a>
+    <a href="free-ai-tools.html" class="btn-s">🎁 Free AI Tools List</a>
+  </div>
+  <div class="stats">
+    <div><div class="sn">200+</div><div class="sl">Tools Reviewed</div></div>
+    <div><div class="sn">8</div><div class="sl">Professions Covered</div></div>
+    <div><div class="sn">Weekly</div><div class="sl">Updated Guides</div></div>
+    <div><div class="sn">Free</div><div class="sl">Always Free to Read</div></div>
+  </div>
+</section>
+
+<section class="professions" id="professions">
+  <div class="container">
+    <div class="reveal">
+      <span class="sec-label">Browse by Profession</span>
+      <h2 class="sec-title">What's your job?</h2>
+      <p class="sec-sub">Pick your profession and discover the exact AI tools that will save you the most time.</p>
     </div>
-    <div class="stats">
-      <div><div class="sn">200+</div><div class="sl">Tools Reviewed</div></div>
-      <div><div class="sn">8</div><div class="sl">Professions Covered</div></div>
-      <div><div class="sn">Weekly</div><div class="sl">Updated Guides</div></div>
-      <div><div class="sn">Free</div><div class="sl">Always Free to Read</div></div>
-    </div>
-  </section>
-
-  <section class="profs" id="profs">
-    <div class="container">
-      <div class="reveal">
-        <span class="sec-label">Browse by Profession</span>
-        <h2 class="sec-title">What's your job?</h2>
-        <p class="sec-sub">Pick your profession and discover the exact AI tools that will save you the most time.</p>
-      </div>
-      <div class="grid">
-        <a href="ai-tools-for-freelancers.html" class="card c1 reveal">
-          <div class="cc"><div class="ci i1">💼</div><div class="ct">Freelancers</div><div class="cd">AI tools for proposals, client communication, invoicing, and delivering work faster.</div>
+    <div class="grid">
+      <a href="ai-tools-for-freelancers.html" class="pc c1 reveal">
+        <div class="cc">
+          <div class="ci i1">💼</div>
+          <div class="ct">Freelancers</div>
+          <div class="cd">AI tools for proposals, client communication, invoicing, and delivering work faster.</div>
           <div class="pills"><span class="pill">ChatGPT</span><span class="pill">Notion AI</span><span class="pill">Grammarly</span><span class="pill">+12 more</span></div>
-          <div class="arr">See freelancer tools →</div></div>
-        </a>
-        <a href="ai-tools-for-students.html" class="card c2 reveal">
-          <div class="cc"><div class="ci i2">🎓</div><div class="ct">Students</div><div class="cd">Free AI tools for research, writing essays, summarizing papers, and studying smarter.</div>
-          <div class="pills"><span class="pill">Claude</span><span class="pill">Perplexity</span><span class="pill">NotebookLM</span><span class="pill">+9 more</span></div>
-          <div class="arr">See student tools →</div></div>
-        </a>
-        <a href="ai-tools-for-teachers.html" class="card c3 reveal">
-          <div class="cc"><div class="ci i3">🏫</div><div class="ct">Teachers</div><div class="cd">Create lesson plans, quizzes, presentations, and feedback in minutes with AI.</div>
-          <div class="pills"><span class="pill">MagicSchool</span><span class="pill">Diffit</span><span class="pill">Canva AI</span><span class="pill">+8 more</span></div>
-          <div class="arr">See teacher tools →</div></div>
-        </a>
-        <a href="ai-tools-for-marketers.html" class="card c4 reveal">
-          <div class="cc"><div class="ci i4">📣</div><div class="ct">Marketers</div><div class="cd">AI for ad copy, SEO, email campaigns, social content, and competitor analysis.</div>
+          <div class="ca">See freelancer tools <span>→</span></div>
+        </div>
+      </a>
+      <a href="ai-tools-for-students.html" class="pc c2 reveal">
+        <div class="cc">
+          <div class="ci i2">🎓</div>
+          <div class="ct">Students</div>
+          <div class="cd">Free AI tools for research, writing essays, summarizing papers, and studying smarter.</div>
+          <div class="pills"><span class="pill">Claude</span><span class="pill">Perplexity</span><span class="pill">Quizlet AI</span><span class="pill">+9 more</span></div>
+          <div class="ca">See student tools <span>→</span></div>
+        </div>
+      </a>
+      <a href="ai-tools-for-teachers.html" class="pc c3 reveal">
+        <div class="cc">
+          <div class="ci i3">🏫</div>
+          <div class="ct">Teachers</div>
+          <div class="cd">Create lesson plans, quizzes, presentations, and student feedback in minutes with AI.</div>
+          <div class="pills"><span class="pill">MagicSchool</span><span class="pill">Diffit</span><span class="pill">SchoolAI</span><span class="pill">+8 more</span></div>
+          <div class="ca">See teacher tools <span>→</span></div>
+        </div>
+      </a>
+      <a href="ai-tools-for-marketers.html" class="pc c4 reveal">
+        <div class="cc">
+          <div class="ci i4">📣</div>
+          <div class="ct">Marketers</div>
+          <div class="cd">AI for ad copy, SEO, email campaigns, social content, and competitor analysis.</div>
           <div class="pills"><span class="pill">Jasper</span><span class="pill">SurferSEO</span><span class="pill">Copy.ai</span><span class="pill">+14 more</span></div>
-          <div class="arr">See marketer tools →</div></div>
-        </a>
-        <a href="ai-tools-for-developers.html" class="card c5 reveal">
-          <div class="cc"><div class="ci i5">💻</div><div class="ct">Developers</div><div class="cd">AI coding assistants, debuggers, code reviewers, and documentation generators.</div>
-          <div class="pills"><span class="pill">Cursor</span><span class="pill">Copilot</span><span class="pill">Claude Code</span><span class="pill">+11 more</span></div>
-          <div class="arr">See dev tools →</div></div>
-        </a>
-        <a href="ai-tools-for-content-creators.html" class="card c6 reveal">
-          <div class="cc"><div class="ci i6">🎬</div><div class="ct">Content Creators</div><div class="cd">Script, edit, thumbnail, schedule — AI tools for YouTube, TikTok, and Instagram.</div>
+          <div class="ca">See marketer tools <span>→</span></div>
+        </div>
+      </a>
+      <a href="ai-tools-for-developers.html" class="pc c5 reveal">
+        <div class="cc">
+          <div class="ci i5">💻</div>
+          <div class="ct">Developers</div>
+          <div class="cd">AI coding assistants, debuggers, code reviewers, and documentation generators.</div>
+          <div class="pills"><span class="pill">GitHub Copilot</span><span class="pill">Cursor</span><span class="pill">Claude Code</span><span class="pill">+11 more</span></div>
+          <div class="ca">See dev tools <span>→</span></div>
+        </div>
+      </a>
+      <a href="ai-tools-for-content-creators.html" class="pc c6 reveal">
+        <div class="cc">
+          <div class="ci i6">🎬</div>
+          <div class="ct">Content Creators</div>
+          <div class="cd">Script, edit, thumbnail, schedule — AI tools for YouTube, TikTok, and Instagram.</div>
           <div class="pills"><span class="pill">Descript</span><span class="pill">CapCut AI</span><span class="pill">Canva AI</span><span class="pill">+10 more</span></div>
-          <div class="arr">See creator tools →</div></div>
-        </a>
+          <div class="ca">See creator tools <span>→</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="tools-sec" id="tools">
+  <div class="container">
+    <div class="tools-head reveal">
+      <div><span class="sec-label">Editor's Picks</span><h2 class="sec-title">Top AI tools right now</h2></div>
+      <a href="free-ai-tools.html" class="btn-s">See all 200+ tools →</a>
+    </div>
+    <div class="tools-grid reveal">
+      <a href="chatgpt-vs-claude.html" class="tc"><div class="tl">🤖</div><div class="ti"><div class="tn">Claude by Anthropic</div><div class="tt">Best AI for writing, analysis and coding</div></div><span class="tbg bb">Free + Pro</span></a>
+      <a href="chatgpt-vs-claude.html" class="tc"><div class="tl">✨</div><div class="ti"><div class="tn">ChatGPT</div><div class="tt">Most popular AI for everyday tasks</div></div><span class="tbg bb">Free + Pro</span></a>
+      <a href="free-ai-tools.html" class="tc"><div class="tl">🔍</div><div class="ti"><div class="tn">Perplexity AI</div><div class="tt">AI search with cited real-time sources</div></div><span class="tbg bf">Free</span></a>
+      <a href="free-ai-tools.html" class="tc"><div class="tl">💡</div><div class="ti"><div class="tn">Notion AI</div><div class="tt">Write, summarize and plan inside Notion</div></div><span class="tbg bp">Paid</span></a>
+      <a href="free-ai-tools.html" class="tc"><div class="tl">🖼️</div><div class="ti"><div class="tn">Midjourney</div><div class="tt">Best AI image generator for creators</div></div><span class="tbg bp">Paid</span></a>
+      <a href="free-ai-tools.html" class="tc"><div class="tl">🎙️</div><div class="ti"><div class="tn">ElevenLabs</div><div class="tt">Realistic AI voice generation</div></div><span class="tbg bb">Free + Pro</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="sec-label">Why AIJobTools</span>
+      <h2 class="sec-title">Reviews you can actually trust</h2>
+    </div>
+    <div class="why-grid">
+      <div class="wi reveal"><div class="wi-ic" style="background:rgba(124,92,252,.15)">🎯</div><h3>Job-specific, not generic</h3><p>We don't list 500 AI tools and call it a guide. Every page focuses on one profession with tools that solve that profession's real problems.</p></div>
+      <div class="wi reveal"><div class="wi-ic" style="background:rgba(16,185,129,.15)">✅</div><h3>Hands-on tested</h3><p>Every tool we recommend is tested for real. We cover pricing, limitations, and who it's actually for — no fluff, no paid placements.</p></div>
+      <div class="wi reveal"><div class="wi-ic" style="background:rgba(251,191,36,.15)">🔄</div><h3>Updated weekly</h3><p>AI moves fast. We refresh our guides every week so you're always reading current, accurate information — not stale 2024 lists.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="nl" id="newsletter">
+  <div class="container">
+    <div class="nlb reveal">
+      <h2>Get the best AI tools<br>in your inbox</h2>
+      <p>Weekly roundup of new tools, honest reviews, and tips for your profession. No spam, ever.</p>
+      <div class="ef">
+        <input type="email" placeholder="Enter your email address">
+        <button onclick="this.textContent='✓ Subscribed!';this.style.background='linear-gradient(135deg,#10b981,#22d3ee)'">Subscribe Free →</button>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="tools-sec" id="tools">
-    <div class="container">
-      <div class="tools-head reveal">
-        <div><span class="sec-label">Editor's Picks</span><h2 class="sec-title">Top AI tools right now</h2></div>
-        <a href="free-ai-tools.html" class="btn-s" style="padding:10px 20px;font-size:14px">See all tools →</a>
-      </div>
-      <div class="tools-grid reveal">
-        <a href="chatgpt-vs-claude.html" class="tc"><div class="tl">🤖</div><div class="ti"><div class="tn">Claude by Anthropic</div><div class="tt">Best AI for writing, analysis and coding</div></div><span class="tbadge bb2">Free + Pro</span></a>
-        <a href="chatgpt-vs-claude.html" class="tc"><div class="tl">✨</div><div class="ti"><div class="tn">ChatGPT</div><div class="tt">Most popular AI for everyday tasks</div></div><span class="tbadge bb2">Free + Pro</span></a>
-        <a href="free-ai-tools.html" class="tc"><div class="tl">🔍</div><div class="ti"><div class="tn">Perplexity AI</div><div class="tt">AI search with cited real-time sources</div></div><span class="tbadge bf">Free</span></a>
-        <a href="free-ai-tools.html" class="tc"><div class="tl">📓</div><div class="ti"><div class="tn">NotebookLM by Google</div><div class="tt">Turn your docs into a personal AI tutor</div></div><span class="tbadge bf">Free</span></a>
-        <a href="free-ai-tools.html" class="tc"><div class="tl">⚡</div><div class="ti"><div class="tn">Cursor</div><div class="tt">Best AI-first code editor for developers</div></div><span class="tbadge bb2">Free + Pro</span></a>
-        <a href="free-ai-tools.html" class="tc"><div class="tl">🎙️</div><div class="ti"><div class="tn">ElevenLabs</div><div class="tt">Realistic AI voice generation</div></div><span class="tbadge bb2">Free + Pro</span></a>
-      </div>
-    </div>
-  </section>
+<footer>
+  <a href="index.html" class="logo">AIJobTools</a>
+  <ul class="fl">
+    <li><a href="#professions">Professions</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="free-ai-tools.html">Free Tools</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="chatgpt-vs-claude.html">ChatGPT vs Claude</a></li>
+  </ul>
+  <p class="fc">© 2026 AIJobTools. Built for people who work smarter.</p>
+</footer>
 
-  <section class="why">
-    <div class="container">
-      <div class="reveal" style="text-align:center">
-        <span class="sec-label">Why AIJobTools</span>
-        <h2 class="sec-title">Reviews you can actually trust</h2>
-      </div>
-      <div class="why-grid">
-        <div class="wi reveal"><div class="wicon" style="background:rgba(124,92,252,0.15)">🎯</div><h3>Job-specific, not generic</h3><p>We don't list 500 AI tools and call it a guide. Every page focuses on one profession with tools that solve that profession's real problems.</p></div>
-        <div class="wi reveal"><div class="wicon" style="background:rgba(16,185,129,0.15)">✅</div><h3>Hands-on tested</h3><p>Every tool we recommend is tested for real. We cover pricing, limitations, and who it's actually for — no fluff, no paid placements.</p></div>
-        <div class="wi reveal"><div class="wicon" style="background:rgba(251,191,36,0.15)">🔄</div><h3>Updated weekly</h3><p>AI moves fast. We refresh our guides every week so you're always reading current, accurate information — not stale 2024 lists.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="nl" id="nl">
-    <div class="container">
-      <div class="nl-box reveal">
-        <h2>Get the best AI tools<br>in your inbox</h2>
-        <p>Weekly roundup of new tools, honest reviews, and tips for your profession. No spam, ever.</p>
-        <form class="form" onsubmit="sub(event)">
-          <input type="email" placeholder="Enter your email address" required>
-          <button type="submit">Subscribe Free →</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <a href="index.html" class="flogo">AIJobTools</a>
-    <ul class="flinks">
-      <li><a href="#profs">Professions</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="free-ai-tools.html">Free Tools</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
-    <p class="fcopy">© 2026 AIJobTools. Built for people who work smarter.</p>
-  </footer>
-
-  <script>
-    const hbg=document.getElementById('hbg'),nav=document.getElementById('nav');
-    hbg.addEventListener('click',()=>nav.classList.toggle('open'));
-    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
-    const obs=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),i*80);obs.unobserve(e.target);}});},{threshold:0.1});
-    document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
-    function sub(e){e.preventDefault();const b=e.target.querySelector('button');b.textContent='✓ You're in!';b.style.background='linear-gradient(135deg,#10b981,#22d3ee)';e.target.querySelector('input').value='';}
-    window.addEventListener('scroll',()=>{document.querySelector('nav').style.background=window.scrollY>40?'rgba(7,7,10,0.97)':'rgba(7,7,10,0.85)';});
-  </script>
+<script>
+  document.getElementById('ham').onclick=()=>document.getElementById('nav').classList.toggle('open');
+  const obs=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+</script>
 </body>
 </html>

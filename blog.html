@@ -1,213 +1,173 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Tools Blog — Latest News, Reviews and Guides — AIJobTools</title>
-<meta name="description" content="The AIJobTools blog. Latest AI tool reviews, how-to guides, profession-specific tips and weekly roundups of the best new AI tools in 2026.">
-<link rel="canonical" href="https://fahaduking.github.io/AIJobTools/blog.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --c-bg: #07070a; --c-surface: #111118; --c-surface2: #18181f;
-  --c-border: rgba(255,255,255,0.07); --c-border-bright: rgba(255,255,255,0.14);
-  --c-text: #f0effe; --c-text-muted: #8b8a9e; --c-text-dim: #4a4963;
-  --c-violet: #7c5cfc; --c-violet-light: #a78bfa; --c-cyan: #22d3ee;
-  --c-emerald: #10b981; --c-rose: #fb7185; --c-amber: #fbbf24;
-  --grad: linear-gradient(135deg, #7c5cfc 0%, #22d3ee 100%);
-  --font-d: 'Syne', sans-serif; --font-b: 'DM Sans', sans-serif; --r: 14px;
-}
-html { scroll-behavior: smooth; }
-body { background: var(--c-bg); color: var(--c-text); font-family: var(--font-b); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
-.orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; opacity: 0.12; }
-.orb-1 { width: 500px; height: 500px; top: -100px; right: -100px; }
-.orb-2 { width: 400px; height: 400px; bottom: 20vh; left: -100px; }
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px; background: rgba(7,7,10,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--c-border); }
-.logo { font-family: var(--font-d); font-size: 18px; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-decoration: none; }
-.back { color: var(--c-text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
-.back:hover { color: var(--c-text); }
-.wrap { max-width: 780px; margin: 0 auto; padding: 100px 5% 80px; position: relative; z-index: 1; }
-.bc { display: flex; gap: 8px; font-size: 13px; color: var(--c-text-dim); margin-bottom: 28px; flex-wrap: wrap; }
-.bc a { color: var(--c-text-muted); text-decoration: none; }
-.bc a:hover { color: var(--c-text); }
-.hero { margin-bottom: 48px; }
-.badge { display: inline-flex; align-items: center; padding: 5px 14px; border-radius: 100px; font-size: 12px; font-weight: 500; margin-bottom: 18px; }
-h1 { font-family: var(--font-d); font-size: clamp(30px, 5vw, 52px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.08; margin-bottom: 18px; }
-.grad { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.hero p { font-size: 17px; color: var(--c-text-muted); font-weight: 300; max-width: 600px; }
-.meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--c-border); font-size: 13px; color: var(--c-text-dim); }
-.toc { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r); padding: 22px 24px; margin-bottom: 48px; }
-.toc-t { font-family: var(--font-d); font-size: 12px; font-weight: 700; margin-bottom: 12px; color: var(--c-text-muted); text-transform: uppercase; letter-spacing: 1.5px; }
-.toc ol { padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
-.toc a { color: var(--c-violet-light); text-decoration: none; font-size: 14px; }
-.toc a:hover { color: var(--c-text); }
-.prose h2 { font-family: var(--font-d); font-size: 26px; font-weight: 700; letter-spacing: -0.5px; margin: 48px 0 16px; }
-.prose p { color: var(--c-text-muted); margin-bottom: 18px; font-size: 16px; line-height: 1.75; }
-.prose p strong { color: var(--c-text); font-weight: 500; }
-.card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r); margin: 32px 0; overflow: hidden; transition: border-color 0.2s; }
-.card:hover { border-color: var(--c-border-bright); }
-.card-head { display: flex; align-items: center; gap: 16px; padding: 22px 24px; border-bottom: 1px solid var(--c-border); flex-wrap: wrap; }
-.rank { font-family: var(--font-d); font-size: 26px; font-weight: 800; color: var(--c-text-dim); min-width: 36px; }
-.icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; background: var(--c-surface2); border: 1px solid var(--c-border); flex-shrink: 0; }
-.info { flex: 1; min-width: 140px; }
-.tname { font-family: var(--font-d); font-size: 20px; font-weight: 700; }
-.tagline { font-size: 13px; color: var(--c-text-muted); margin-top: 2px; }
-.tags { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-.tag { font-size: 11px; padding: 4px 11px; border-radius: 100px; font-weight: 600; white-space: nowrap; }
-.t-free { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.25); }
-.t-paid { background: rgba(251,191,36,0.12); color: #fbbf24; border: 1px solid rgba(251,191,36,0.25); }
-.t-both { background: rgba(124,92,252,0.15); color: #a78bfa; border: 1px solid rgba(124,92,252,0.25); }
-.t-top { background: rgba(251,113,133,0.15); color: #fb7185; border: 1px solid rgba(251,113,133,0.25); }
-.card-body { padding: 22px 24px; }
-.card-body p { color: var(--c-text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 16px; }
-.card-body p strong { color: var(--c-text); }
-.pc { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
-.pros, .cons { background: var(--c-surface2); border-radius: 10px; padding: 14px 16px; }
-.pt, .ct { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
-.pt { color: #10b981; } .ct { color: #fb7185; }
-.pros ul, .cons ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-.pros li::before { content: '✓ '; color: #10b981; font-weight: 600; }
-.cons li::before { content: '✗ '; color: #fb7185; font-weight: 600; }
-.pros li, .cons li { font-size: 13px; color: var(--c-text-muted); }
-.cta { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; background: var(--grad); color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 500; transition: opacity 0.2s, transform 0.2s; }
-.cta:hover { opacity: 0.85; transform: translateY(-1px); }
-.tip { background: rgba(124,92,252,0.08); border: 1px solid rgba(124,92,252,0.2); border-radius: var(--r); padding: 22px 24px; margin: 32px 0; }
-.tip-t { font-family: var(--font-d); font-size: 15px; font-weight: 700; color: var(--c-violet-light); margin-bottom: 10px; }
-.tip p { color: var(--c-text-muted); font-size: 15px; margin: 0; }
-.rel { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--c-border); }
-.rel h3 { font-family: var(--font-d); font-size: 22px; font-weight: 700; margin-bottom: 20px; }
-.rel-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.rel-card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r); padding: 18px 20px; text-decoration: none; color: var(--c-text); display: flex; align-items: center; gap: 14px; transition: border-color 0.2s, transform 0.2s; }
-.rel-card:hover { border-color: var(--c-border-bright); transform: translateY(-2px); }
-.rel-icon { font-size: 24px; }
-.rel-name { font-family: var(--font-d); font-size: 15px; font-weight: 700; }
-.rel-desc { font-size: 12px; color: var(--c-text-muted); margin-top: 2px; }
-footer { position: relative; z-index: 1; padding: 32px 5%; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-footer a { font-family: var(--font-d); font-size: 16px; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
-footer p { font-size: 13px; color: #4a4963; }
-@media (max-width: 600px) { .pc { grid-template-columns: 1fr; } .rel-grid { grid-template-columns: 1fr; } }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tools Blog — Latest Guides & Reviews 2026 — AIJobTools</title>
+  <meta name="description" content="The AIJobTools blog. Latest guides on the best AI tools for every profession, honest reviews, comparisons, and tips for working smarter with AI in 2026.">
+  <meta name="keywords" content="ai tools blog 2026, best ai tools guides, ai tool reviews, how to use ai for work, ai productivity tips">
+  <link rel="canonical" href="https://fahaduking.github.io/AIJobTools/blog.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#07070a;--s1:#111118;--s2:#18181f;--b1:rgba(255,255,255,0.07);--b2:rgba(255,255,255,0.14);--t1:#f0effe;--t2:#8b8a9e;--t3:#4a4963;--violet:#7c5cfc;--vl:#a78bfa;--cyan:#22d3ee;--green:#10b981;--grad:linear-gradient(135deg,#7c5cfc,#22d3ee);--fd:'Syne',sans-serif;--fb:'DM Sans',sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:16px;line-height:1.7;overflow-x:hidden}
+    .orb{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0;opacity:.12}
+    .o1{width:500px;height:500px;background:#7c5cfc;top:-100px;left:-100px}
+    .o2{width:400px;height:400px;background:#22d3ee;bottom:20vh;right:-100px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px;background:rgba(7,7,10,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--b1)}
+    .logo{font-family:var(--fd);font-size:18px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+    .back{color:var(--t2);text-decoration:none;font-size:14px;transition:color .2s}
+    .back:hover{color:var(--t1)}
+    .wrap{max-width:1000px;margin:0 auto;padding:100px 5% 80px;position:relative;z-index:1}
+    .page-hero{margin-bottom:56px}
+    .sec-label{display:inline-block;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--vl);margin-bottom:14px}
+    .grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    h1{font-family:var(--fd);font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-1.5px;line-height:1.08;margin-bottom:16px}
+    .lead{font-size:17px;color:var(--t2);font-weight:300}
+    .featured{background:var(--s1);border:1px solid var(--b1);border-radius:20px;padding:36px;margin-bottom:48px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;text-decoration:none;color:var(--t1);transition:border-color .2s,transform .2s}
+    .featured:hover{border-color:var(--b2);transform:translateY(-3px)}
+    .f-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(124,92,252,.15);border:1px solid rgba(124,92,252,.3);color:var(--vl);padding:4px 12px;border-radius:100px;font-size:12px;font-weight:600;margin-bottom:16px}
+    .f-title{font-family:var(--fd);font-size:clamp(20px,3vw,30px);font-weight:800;letter-spacing:-0.5px;margin-bottom:12px;line-height:1.2}
+    .f-desc{color:var(--t2);font-size:15px;line-height:1.7;margin-bottom:20px}
+    .f-meta{display:flex;gap:16px;font-size:13px;color:var(--t3)}
+    .f-img{background:linear-gradient(135deg,rgba(124,92,252,.2),rgba(34,211,238,.1));border-radius:16px;height:200px;display:flex;align-items:center;justify-content:center;font-size:64px}
+    .read-link{display:inline-flex;align-items:center;gap:6px;color:var(--vl);font-size:14px;font-weight:500}
+    .grid-title{font-family:var(--fd);font-size:22px;font-weight:700;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--b1)}
+    .blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:48px}
+    .bc{background:var(--s1);border:1px solid var(--b1);border-radius:16px;padding:24px;text-decoration:none;color:var(--t1);display:flex;flex-direction:column;gap:12px;transition:border-color .2s,transform .2s}
+    .bc:hover{border-color:var(--b2);transform:translateY(-3px)}
+    .bc-tag{font-size:11px;padding:3px 10px;border-radius:100px;font-weight:600;width:fit-content}
+    .tag-fr{background:rgba(124,92,252,.15);color:var(--vl);border:1px solid rgba(124,92,252,.25)}
+    .tag-st{background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.25)}
+    .tag-mk{background:rgba(249,115,22,.15);color:#f97316;border:1px solid rgba(249,115,22,.25)}
+    .tag-dv{background:rgba(167,139,250,.15);color:var(--vl);border:1px solid rgba(167,139,250,.25)}
+    .tag-cr{background:rgba(34,211,238,.15);color:var(--cyan);border:1px solid rgba(34,211,238,.25)}
+    .tag-tc{background:rgba(251,113,133,.15);color:#fb7185;border:1px solid rgba(251,113,133,.25)}
+    .tag-li{background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid rgba(251,191,36,.25)}
+    .bc-title{font-family:var(--fd);font-size:18px;font-weight:700;line-height:1.3}
+    .bc-desc{font-size:14px;color:var(--t2);line-height:1.6}
+    .bc-meta{font-size:12px;color:var(--t3);margin-top:auto}
+    .nl-box{background:linear-gradient(135deg,rgba(124,92,252,.12),rgba(34,211,238,.08));border:1px solid rgba(124,92,252,.25);border-radius:16px;padding:36px;text-align:center;margin-top:16px}
+    .nl-box h3{font-family:var(--fd);font-size:22px;font-weight:700;margin-bottom:10px}
+    .nl-box p{color:var(--t2);font-size:15px;margin-bottom:24px}
+    .ef{display:flex;gap:12px;max-width:420px;margin:0 auto}
+    .ef input{flex:1;background:rgba(255,255,255,.06);border:1px solid var(--b2);border-radius:10px;padding:12px 16px;color:var(--t1);font-family:var(--fb);font-size:14px;outline:none}
+    .ef input::placeholder{color:var(--t3)}
+    .ef button{background:var(--grad);color:#fff;border:none;padding:12px 20px;border-radius:10px;font-family:var(--fb);font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap}
+    footer{position:relative;z-index:1;padding:32px 5%;border-top:1px solid var(--b1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    footer p{font-size:13px;color:var(--t3)}
+    @media(max-width:700px){.featured{grid-template-columns:1fr}.f-img{display:none}.blog-grid{grid-template-columns:1fr}.ef{flex-direction:column}}
+  </style>
+</head>
+<body>
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+<nav>
+  <a href="index.html" class="logo">AIJobTools</a>
+  <a href="index.html" class="back">← Back to home</a>
+</nav>
 
-.blog-hero{margin-bottom:48px}
-.blog-hero h1{font-family:var(--font-d);font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-1.5px;margin-bottom:14px}
-.blog-hero p{font-size:17px;color:var(--c-text-muted);font-weight:300;max-width:560px}
-.posts{display:flex;flex-direction:column;gap:20px}
-.post{background:var(--c-surface);border:1px solid var(--c-border);border-radius:14px;padding:28px;text-decoration:none;color:var(--c-text);display:block;transition:border-color 0.2s,transform 0.2s}
-.post:hover{border-color:var(--c-border-bright);transform:translateY(-2px)}
-.post-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
-.post-cat{font-size:11px;padding:3px 10px;border-radius:100px;font-weight:600}
-.post-date{font-size:12px;color:var(--c-text-dim)}
-.post-read{font-size:12px;color:var(--c-text-dim)}
-.post h2{font-family:var(--font-d);font-size:20px;font-weight:700;margin-bottom:10px;letter-spacing:-0.3px;line-height:1.3}
-.post p{font-size:14px;color:var(--c-text-muted);line-height:1.7;margin-bottom:14px}
-.post-tags{display:flex;gap:8px;flex-wrap:wrap}
-.ptag{font-size:11px;padding:3px 10px;border-radius:100px;border:1px solid var(--c-border-bright);color:var(--c-text-muted)}
-.post-arr{font-size:13px;font-weight:500;color:var(--c-violet-light);margin-top:14px}
-.featured{background:linear-gradient(135deg,rgba(124,92,252,0.1),rgba(34,211,238,0.06));border:1px solid rgba(124,92,252,0.25)}
-.sidebar-box{background:var(--c-surface);border:1px solid var(--c-border);border-radius:14px;padding:24px;margin-top:40px}
-.sidebar-box h3{font-family:var(--font-d);font-size:17px;font-weight:700;margin-bottom:16px}
-.sidebar-links{display:flex;flex-direction:column;gap:10px}
-.sidebar-links a{font-size:14px;color:var(--c-violet-light);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.2s}
-.sidebar-links a:hover{color:var(--c-text)}
-</style>
-</head><body>
-<div class="orb orb-1" style="background:#7c5cfc"></div>
-<div class="orb orb-2" style="background:#22d3ee"></div>
-<nav><a href="index.html" class="logo">AIJobTools</a><a href="index.html" class="back">← Home</a></nav>
 <div class="wrap">
-  <div class="blog-hero">
-    <div class="badge" style="background:rgba(124,92,252,0.15);border:1px solid rgba(124,92,252,0.3);color:#a78bfa;margin-bottom:18px">📝 Blog</div>
-    <h1>AI Tools <span class="grad">Blog</span></h1>
-    <p>Weekly guides, honest reviews, and profession-specific tips. Everything you need to use AI smarter in 2026.</p>
+  <div class="page-hero">
+    <span class="sec-label">Blog</span>
+    <h1>Guides, reviews &<br><span class="grad">AI tool news</span></h1>
+    <p class="lead">The latest on AI tools for every profession. Updated weekly — no hype, just honest guides.</p>
   </div>
 
-  <div class="posts">
-
-    <a href="ai-tools-for-students.html" class="post featured">
-      <div class="post-meta">
-        <span class="post-cat" style="background:rgba(16,185,129,0.15);color:#10b981;border:1px solid rgba(16,185,129,0.25)">🎓 Students</span>
-        <span class="post-date">March 22, 2026</span>
-        <span class="post-read">7 min read</span>
+  <!-- Featured post -->
+  <a href="chatgpt-vs-claude.html" class="featured">
+    <div>
+      <div class="f-badge">⭐ Featured Guide</div>
+      <div class="f-title">ChatGPT vs Claude in 2026 — Which AI Actually Wins?</div>
+      <div class="f-desc">We tested both for writing, coding, research, and document analysis. Here's the honest breakdown — including which one to use for your specific job.</div>
+      <div class="f-meta">
+        <span>📅 March 2026</span>
+        <span>⏱️ 6 min read</span>
+        <span>⚔️ Comparison</span>
       </div>
-      <h2>The 10 Best Free AI Tools for Students in 2026 (Tested)</h2>
-      <p>We tested 30+ AI tools that claim to help students study better. Here are the 10 that actually deliver — from Perplexity for research to NotebookLM for turning your lecture notes into a personal tutor. Most are completely free.</p>
-      <div class="post-tags"><span class="ptag">Free tools</span><span class="ptag">Research</span><span class="ptag">Essay writing</span><span class="ptag">Study</span></div>
-      <div class="post-arr">Read the full guide →</div>
+      <div class="read-link" style="margin-top:16px">Read the guide →</div>
+    </div>
+    <div class="f-img">⚔️</div>
+  </a>
+
+  <!-- Latest articles -->
+  <div class="grid-title">Latest guides</div>
+  <div class="blog-grid">
+
+    <a href="ai-tools-for-freelancers.html" class="bc">
+      <span class="bc-tag tag-fr">💼 Freelancers</span>
+      <div class="bc-title">12 Best AI Tools for Freelancers in 2026</div>
+      <div class="bc-desc">From winning proposals to delivering client work faster — the exact AI tools that save freelancers 5–10 hours a week.</div>
+      <div class="bc-meta">📅 March 2026 · 8 min read</div>
     </a>
 
-    <a href="ai-tools-for-freelancers.html" class="post">
-      <div class="post-meta">
-        <span class="post-cat" style="background:rgba(124,92,252,0.15);color:#a78bfa;border:1px solid rgba(124,92,252,0.25)">💼 Freelancers</span>
-        <span class="post-date">March 20, 2026</span>
-        <span class="post-read">8 min read</span>
-      </div>
-      <h2>12 AI Tools Every Freelancer Needs in 2026 — Ranked</h2>
-      <p>Freelancing in 2026 means competing with people who use AI to work 3× faster. Here are the 12 tools that will save you the most time — covering proposals, client communication, writing, and delivery.</p>
-      <div class="post-tags"><span class="ptag">Proposals</span><span class="ptag">Client comms</span><span class="ptag">Writing</span></div>
-      <div class="post-arr">Read the full guide →</div>
+    <a href="ai-tools-for-students.html" class="bc">
+      <span class="bc-tag tag-st">🎓 Students</span>
+      <div class="bc-title">10 Best Free AI Tools for Students in 2026</div>
+      <div class="bc-desc">Research faster, write better essays, and actually understand your readings — all with free AI tools that won't get you in trouble.</div>
+      <div class="bc-meta">📅 March 2026 · 7 min read</div>
     </a>
 
-    <a href="chatgpt-vs-claude.html" class="post">
-      <div class="post-meta">
-        <span class="post-cat" style="background:rgba(251,191,36,0.12);color:#fbbf24;border:1px solid rgba(251,191,36,0.25)">⚔️ Comparison</span>
-        <span class="post-date">March 18, 2026</span>
-        <span class="post-read">6 min read</span>
-      </div>
-      <h2>ChatGPT vs Claude in 2026: Which AI Should You Use?</h2>
-      <p>We compared both AIs head-to-head across writing, coding, research, and everyday tasks. The honest answer: they're both great but for different things. Here's exactly when to use each one.</p>
-      <div class="post-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span><span class="ptag">Comparison</span></div>
-      <div class="post-arr">Read the full comparison →</div>
+    <a href="ai-tools-for-developers.html" class="bc">
+      <span class="bc-tag tag-dv">💻 Developers</span>
+      <div class="bc-title">Cursor vs GitHub Copilot vs Claude Code (2026)</div>
+      <div class="bc-desc">Three of the most powerful AI coding tools compared head-to-head. Which one should you actually use in your workflow?</div>
+      <div class="bc-meta">📅 March 2026 · 9 min read</div>
     </a>
 
-    <a href="ai-tools-for-teachers.html" class="post">
-      <div class="post-meta">
-        <span class="post-cat" style="background:rgba(251,113,133,0.15);color:#fb7185;border:1px solid rgba(251,113,133,0.25)">🏫 Teachers</span>
-        <span class="post-date">March 15, 2026</span>
-        <span class="post-read">6 min read</span>
-      </div>
-      <h2>How Teachers Are Saving 8 Hours a Week With AI in 2026</h2>
-      <p>MagicSchool, Diffit, NotebookLM — the AI tools built specifically for educators are genuinely life-changing. We break down which tools save the most time and exactly how to use them for lesson plans, quizzes, and feedback.</p>
-      <div class="post-tags"><span class="ptag">Lesson plans</span><span class="ptag">Quizzes</span><span class="ptag">Grading</span></div>
-      <div class="post-arr">Read the full guide →</div>
+    <a href="ai-tools-for-teachers.html" class="bc">
+      <span class="bc-tag tag-tc">🏫 Teachers</span>
+      <div class="bc-title">10 Best AI Tools for Teachers in 2026</div>
+      <div class="bc-desc">Create a full lesson plan in 15 seconds. Generate differentiated reading materials instantly. Here's how teachers are saving 10 hours a week.</div>
+      <div class="bc-meta">📅 March 2026 · 6 min read</div>
     </a>
 
-    <a href="ai-tools-for-developers.html" class="post">
-      <div class="post-meta">
-        <span class="post-cat" style="background:rgba(124,92,252,0.15);color:#a78bfa;border:1px solid rgba(124,92,252,0.25)">💻 Developers</span>
-        <span class="post-date">March 12, 2026</span>
-        <span class="post-read">9 min read</span>
-      </div>
-      <h2>Cursor vs GitHub Copilot vs Claude Code — Which AI Coding Tool Wins?</h2>
-      <p>We spent two weeks using all three AI coding tools on real projects. Here's our honest verdict: which one saves the most time, which one handles complex tasks best, and which one is worth paying for.</p>
-      <div class="post-tags"><span class="ptag">Cursor</span><span class="ptag">GitHub Copilot</span><span class="ptag">Claude Code</span></div>
-      <div class="post-arr">Read the full comparison →</div>
+    <a href="ai-tools-for-marketers.html" class="bc">
+      <span class="bc-tag tag-mk">📣 Marketers</span>
+      <div class="bc-title">10 Best AI Tools for Digital Marketers in 2026</div>
+      <div class="bc-desc">From SEO content that actually ranks to ad copy that converts — the AI marketing stack that's replacing entire content teams.</div>
+      <div class="bc-meta">📅 March 2026 · 8 min read</div>
     </a>
 
-    <a href="free-ai-tools.html" class="post">
-      <div class="post-meta">
-        <span class="post-cat" style="background:rgba(16,185,129,0.15);color:#10b981;border:1px solid rgba(16,185,129,0.25)">🎁 Free Tools</span>
-        <span class="post-date">March 10, 2026</span>
-        <span class="post-read">5 min read</span>
-      </div>
-      <h2>30+ Free AI Tools That Actually Work in 2026 (No Credit Card)</h2>
-      <p>The "free" AI tool space is full of bait-and-switch plans. We tested 60+ tools to find the ones with genuinely useful free tiers — no credit card, no 3-day trials, no hidden limits.</p>
-      <div class="post-tags"><span class="ptag">Free</span><span class="ptag">No credit card</span><span class="ptag">Tested</span></div>
-      <div class="post-arr">See the full list →</div>
+    <a href="ai-tools-for-content-creators.html" class="bc">
+      <span class="bc-tag tag-cr">🎬 Creators</span>
+      <div class="bc-title">10 Best AI Tools for YouTube & TikTok Creators</div>
+      <div class="bc-desc">Script faster, edit in half the time, make better thumbnails. The AI creator stack used by channels growing to 100k subscribers in 2026.</div>
+      <div class="bc-meta">📅 March 2026 · 7 min read</div>
+    </a>
+
+    <a href="free-ai-tools.html" class="bc">
+      <span class="bc-tag tag-li">🎁 Free Tools</span>
+      <div class="bc-title">50+ Free AI Tools That Actually Work (No Credit Card)</div>
+      <div class="bc-desc">The definitive list of genuinely free AI tools in 2026 — tested and organised by category. No trials, no paywalls.</div>
+      <div class="bc-meta">📅 March 2026 · 5 min read</div>
+    </a>
+
+    <a href="chatgpt-vs-claude.html" class="bc">
+      <span class="bc-tag tag-dv">⚔️ Comparison</span>
+      <div class="bc-title">ChatGPT vs Claude — Complete 2026 Comparison</div>
+      <div class="bc-desc">Writing quality, coding, document reading, image generation — we tested every category. Which one should you use and when?</div>
+      <div class="bc-meta">📅 March 2026 · 6 min read</div>
     </a>
 
   </div>
 
-  <div class="sidebar-box">
-    <h3>Browse by profession</h3>
-    <div class="sidebar-links">
-      <a href="ai-tools-for-freelancers.html">💼 AI tools for freelancers</a>
-      <a href="ai-tools-for-students.html">🎓 AI tools for students</a>
-      <a href="ai-tools-for-teachers.html">🏫 AI tools for teachers</a>
-      <a href="ai-tools-for-marketers.html">📣 AI tools for marketers</a>
-      <a href="ai-tools-for-developers.html">💻 AI tools for developers</a>
-      <a href="ai-tools-for-content-creators.html">🎬 AI tools for content creators</a>
-      <a href="free-ai-tools.html">🎁 Free AI tools master list</a>
-      <a href="chatgpt-vs-claude.html">⚔️ ChatGPT vs Claude comparison</a>
+  <!-- Newsletter -->
+  <div class="nl-box">
+    <h3>Get new guides every week</h3>
+    <p>New AI tools reviews, comparison guides, and profession-specific tips — delivered free every week.</p>
+    <div class="ef">
+      <input type="email" placeholder="Your email address">
+      <button onclick="this.textContent='✓ Subscribed!'">Subscribe →</button>
     </div>
   </div>
-
 </div>
-<footer><a href="index.html">AIJobTools</a><p>© 2026 AIJobTools · Best AI tools by profession</p></footer>
-</body></html>
+
+<footer>
+  <a href="index.html" style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;background:linear-gradient(135deg,#7c5cfc,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;">AIJobTools</a>
+  <p>© 2026 AIJobTools · Best AI tools by profession</p>
+</footer>
+</body>
+</html>
