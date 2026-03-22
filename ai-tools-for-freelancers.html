@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best AI Tools for Freelancers in 2026 — AIJobTools</title>
+  <meta name="description" content="The 12 best AI tools for freelancers in 2026. Save hours on proposals, client emails, invoicing, and project delivery. Reviewed and ranked by real use.">
+  <meta name="keywords" content="ai tools for freelancers, best ai for freelance work, ai freelancer tools 2026, free ai tools freelancers">
+  <link rel="canonical" href="https://aijobtools.github.io/pages/ai-tools-for-freelancers.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Schema.org Article markup for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Best AI Tools for Freelancers in 2026",
+    "description": "The 12 best AI tools that save freelancers hours every week on proposals, emails, and delivery.",
+    "author": { "@type": "Organization", "name": "AIJobTools" },
+    "publisher": { "@type": "Organization", "name": "AIJobTools" },
+    "dateModified": "2026-03-01",
+    "mainEntityOfPage": "https://aijobtools.github.io/pages/ai-tools-for-freelancers.html"
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --c-bg: #07070a;
+      --c-surface: #111118;
+      --c-surface2: #18181f;
+      --c-border: rgba(255,255,255,0.07);
+      --c-border-bright: rgba(255,255,255,0.14);
+      --c-text: #f0effe;
+      --c-text-muted: #8b8a9e;
+      --c-text-dim: #4a4963;
+      --c-violet: #7c5cfc;
+      --c-violet-light: #a78bfa;
+      --c-cyan: #22d3ee;
+      --c-emerald: #10b981;
+      --c-rose: #fb7185;
+      --c-amber: #fbbf24;
+      --grad-hero: linear-gradient(135deg, #7c5cfc 0%, #22d3ee 100%);
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius: 14px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--c-bg); color: var(--c-text); font-family: var(--font-body); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+    /* Orbs */
+    .orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; opacity: 0.12; }
+    .orb-1 { width: 500px; height: 500px; background: #7c5cfc; top: -100px; right: -100px; }
+    .orb-2 { width: 400px; height: 400px; background: #22d3ee; bottom: 20vh; left: -100px; }
+
+    /* Nav */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px; background: rgba(7,7,10,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--c-border); }
+    .nav-logo { font-family: var(--font-display); font-size: 18px; font-weight: 800; background: var(--grad-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-decoration: none; }
+    .nav-back { display: flex; align-items: center; gap: 6px; color: var(--c-text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .nav-back:hover { color: var(--c-text); }
+
+    /* Layout */
+    .page-wrap { max-width: 780px; margin: 0 auto; padding: 100px 5% 80px; position: relative; z-index: 1; }
+
+    /* Breadcrumb */
+    .breadcrumb { display: flex; gap: 8px; align-items: center; font-size: 13px; color: var(--c-text-dim); margin-bottom: 28px; flex-wrap: wrap; }
+    .breadcrumb a { color: var(--c-text-muted); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--c-text); }
+    .breadcrumb span { color: var(--c-text-dim); }
+
+    /* Page hero */
+    .page-hero { margin-bottom: 48px; }
+    .prof-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(124,92,252,0.15); border: 1px solid rgba(124,92,252,0.3); color: var(--c-violet-light); padding: 5px 14px; border-radius: 100px; font-size: 12px; font-weight: 500; margin-bottom: 18px; }
+    .page-hero h1 { font-family: var(--font-display); font-size: clamp(30px, 5vw, 52px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.08; margin-bottom: 18px; }
+    .page-hero h1 .grad { background: var(--grad-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-hero p { font-size: 17px; color: var(--c-text-muted); font-weight: 300; max-width: 600px; }
+
+    /* Meta row */
+    .meta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--c-border); font-size: 13px; color: var(--c-text-dim); }
+    .meta-item { display: flex; align-items: center; gap: 6px; }
+
+    /* TOC */
+    .toc { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); padding: 22px 24px; margin-bottom: 48px; }
+    .toc-title { font-family: var(--font-display); font-size: 14px; font-weight: 700; margin-bottom: 12px; color: var(--c-text-muted); text-transform: uppercase; letter-spacing: 1px; }
+    .toc ol { padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+    .toc a { color: var(--c-violet-light); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .toc a:hover { color: var(--c-text); }
+
+    /* Article prose */
+    .prose h2 { font-family: var(--font-display); font-size: 26px; font-weight: 700; letter-spacing: -0.5px; margin: 48px 0 16px; }
+    .prose h3 { font-family: var(--font-display); font-size: 19px; font-weight: 700; margin: 32px 0 10px; }
+    .prose p { color: var(--c-text-muted); margin-bottom: 18px; font-size: 16px; line-height: 1.75; }
+    .prose p strong { color: var(--c-text); font-weight: 500; }
+
+    /* Tool review card */
+    .tool-review {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius);
+      margin: 32px 0;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .tool-review:hover { border-color: var(--c-border-bright); }
+
+    .tool-review-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .tool-rank {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--c-text-dim);
+      min-width: 36px;
+    }
+
+    .tool-logo-lg {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      background: var(--c-surface2);
+      border: 1px solid var(--c-border);
+      flex-shrink: 0;
+    }
+
+    .tool-header-info { flex: 1; }
+    .tool-header-name { font-family: var(--font-display); font-size: 20px; font-weight: 700; }
+    .tool-header-tagline { font-size: 13px; color: var(--c-text-muted); margin-top: 2px; }
+
+    .tool-badges { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .badge { font-size: 11px; padding: 4px 11px; border-radius: 100px; font-weight: 600; white-space: nowrap; }
+    .badge-free { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.25); }
+    .badge-paid { background: rgba(251,191,36,0.12); color: #fbbf24; border: 1px solid rgba(251,191,36,0.25); }
+    .badge-both { background: rgba(124,92,252,0.15); color: #a78bfa; border: 1px solid rgba(124,92,252,0.25); }
+    .badge-top { background: rgba(251,113,133,0.15); color: #fb7185; border: 1px solid rgba(251,113,133,0.25); }
+
+    .tool-review-body { padding: 22px 24px; }
+    .tool-review-body p { color: var(--c-text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 16px; }
+
+    .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+    .pros, .cons { background: var(--c-surface2); border-radius: 10px; padding: 14px 16px; }
+    .pros-title, .cons-title { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+    .pros-title { color: var(--c-emerald); }
+    .cons-title { color: var(--c-rose); }
+    .pros ul, .cons ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .pros li::before { content: '✓ '; color: var(--c-emerald); font-weight: 600; }
+    .cons li::before { content: '✗ '; color: var(--c-rose); font-weight: 600; }
+    .pros li, .cons li { font-size: 13px; color: var(--c-text-muted); }
+
+    .tool-cta { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; background: var(--grad-hero); color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 500; transition: opacity 0.2s, transform 0.2s; }
+    .tool-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    /* Quick tips box */
+    .tip-box { background: rgba(124,92,252,0.08); border: 1px solid rgba(124,92,252,0.2); border-radius: var(--radius); padding: 22px 24px; margin: 32px 0; }
+    .tip-box-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--c-violet-light); margin-bottom: 10px; }
+    .tip-box p { color: var(--c-text-muted); font-size: 15px; margin: 0; }
+
+    /* Related */
+    .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--c-border); }
+    .related h3 { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 20px; }
+    .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .related-card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); padding: 18px 20px; text-decoration: none; color: var(--c-text); display: flex; align-items: center; gap: 14px; transition: border-color 0.2s, transform 0.2s; }
+    .related-card:hover { border-color: var(--c-border-bright); transform: translateY(-2px); }
+    .related-icon { font-size: 24px; }
+    .related-name { font-family: var(--font-display); font-size: 15px; font-weight: 700; }
+    .related-desc { font-size: 12px; color: var(--c-text-muted); margin-top: 2px; }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .pros-cons { grid-template-columns: 1fr; }
+      .related-grid { grid-template-columns: 1fr; }
+      .tool-review-header { flex-wrap: wrap; }
+      .tool-badges { margin-top: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">AIJobTools</a>
+    <a href="../index.html" class="nav-back">← Back to all professions</a>
+  </nav>
+
+  <div class="page-wrap">
+
+    <!-- Breadcrumb (SEO) -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span>›</span>
+      <span>AI Tools for Freelancers</span>
+    </nav>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+      <div class="prof-badge">💼 Freelancers</div>
+      <h1>Best AI Tools for<br><span class="grad">Freelancers</span> in 2026</h1>
+      <p>We tested 40+ AI tools so you don't have to. Here are the 12 that actually save freelancers real hours every week — covering proposals, client comms, writing, and project delivery.</p>
+      <div class="meta-row">
+        <span class="meta-item">📅 Updated March 2026</span>
+        <span class="meta-item">⏱️ 8 min read</span>
+        <span class="meta-item">🔧 12 tools reviewed</span>
+      </div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+      <div class="toc-title">In this guide</div>
+      <ol>
+        <li><a href="#chatgpt">ChatGPT — Best all-around AI assistant</a></li>
+        <li><a href="#claude">Claude — Best for long-form writing & analysis</a></li>
+        <li><a href="#grammarly">Grammarly — Best for client-ready communication</a></li>
+        <li><a href="#notion-ai">Notion AI — Best for project management</a></li>
+        <li><a href="#otter">Otter.ai — Best for client meeting notes</a></li>
+        <li><a href="#summary">Quick comparison table</a></li>
+      </ol>
+    </div>
+
+    <!-- Intro prose -->
+    <div class="prose">
+      <p>Freelancing in 2026 means competing with people who use AI to work 3× faster than you. The good news? These tools are mostly free or cheap — and once you know which ones to use, you can reclaim hours every single week.</p>
+      <p>We focused on tools that solve <strong>real freelancer problems</strong>: winning more proposals, writing faster, communicating better with clients, and delivering higher quality work in less time.</p>
+    </div>
+
+    <!-- Tool 1 -->
+    <div id="chatgpt" class="tool-review">
+      <div class="tool-review-header">
+        <div class="tool-rank">#1</div>
+        <div class="tool-logo-lg">✨</div>
+        <div class="tool-header-info">
+          <div class="tool-header-name">ChatGPT</div>
+          <div class="tool-header-tagline">by OpenAI · All-around AI assistant</div>
+        </div>
+        <div class="tool-badges">
+          <span class="badge badge-top">⭐ Editor's Pick</span>
+          <span class="badge badge-both">Free + Plus</span>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <p>ChatGPT is still the most versatile AI tool for freelancers in 2026. Whether you're drafting a proposal, writing project briefs, brainstorming ideas, or responding to a difficult client — ChatGPT handles it all. The free tier is genuinely useful for most tasks.</p>
+        <p><strong>Best for:</strong> Proposals, client emails, brainstorming, content outlines, research summaries, and quick first drafts of anything.</p>
+        <div class="pros-cons">
+          <div class="pros">
+            <div class="pros-title">Pros</div>
+            <ul>
+              <li>Huge free tier</li>
+              <li>Handles almost any task</li>
+              <li>Fastest iteration speed</li>
+              <li>Strong at structured writing</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <div class="cons-title">Cons</div>
+            <ul>
+              <li>Can hallucinate facts</li>
+              <li>Context limit on free tier</li>
+              <li>Needs specific prompting</li>
+            </ul>
+          </div>
+        </div>
+        <a href="https://chat.openai.com" target="_blank" rel="noopener" class="tool-cta">Try ChatGPT Free →</a>
+      </div>
+    </div>
+
+    <!-- Tool 2 -->
+    <div id="claude" class="tool-review">
+      <div class="tool-review-header">
+        <div class="tool-rank">#2</div>
+        <div class="tool-logo-lg">🤖</div>
+        <div class="tool-header-info">
+          <div class="tool-header-name">Claude by Anthropic</div>
+          <div class="tool-header-tagline">by Anthropic · Best for deep writing tasks</div>
+        </div>
+        <div class="tool-badges">
+          <span class="badge badge-both">Free + Pro</span>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <p>Claude is the best AI tool for freelancers who work with long documents, complex client briefs, or nuanced writing tasks. It has a massive context window (it can read entire project documents), and its writing output is more natural and less "AI-sounding" than most competitors.</p>
+        <p><strong>Best for:</strong> Long-form content writing, editing client work, analyzing contracts, summarizing lengthy documents, and writing in a specific tone or voice.</p>
+        <div class="pros-cons">
+          <div class="pros">
+            <div class="pros-title">Pros</div>
+            <ul>
+              <li>Most natural writing output</li>
+              <li>Huge context window</li>
+              <li>Excellent at following instructions</li>
+              <li>Strong free tier</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <div class="cons-title">Cons</div>
+            <ul>
+              <li>Rate limits on free plan</li>
+              <li>No image generation</li>
+              <li>Less "plugged in" than GPT</li>
+            </ul>
+          </div>
+        </div>
+        <a href="https://claude.ai" target="_blank" rel="noopener" class="tool-cta">Try Claude Free →</a>
+      </div>
+    </div>
+
+    <!-- Tool 3 -->
+    <div id="grammarly" class="tool-review">
+      <div class="tool-review-header">
+        <div class="tool-rank">#3</div>
+        <div class="tool-logo-lg">✍️</div>
+        <div class="tool-header-info">
+          <div class="tool-header-name">Grammarly</div>
+          <div class="tool-header-tagline">Best for client-ready communication</div>
+        </div>
+        <div class="tool-badges">
+          <span class="badge badge-both">Free + Premium</span>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <p>For freelancers, every email and deliverable represents your professional reputation. Grammarly catches errors, improves tone, and now includes AI suggestions for rewrites — all live as you type, in Gmail, Notion, Google Docs, or anywhere else.</p>
+        <p><strong>Best for:</strong> Client emails, proposals, final deliverable review, and anything where professional tone matters.</p>
+        <div class="pros-cons">
+          <div class="pros">
+            <div class="pros-title">Pros</div>
+            <ul>
+              <li>Works everywhere you type</li>
+              <li>Tone detection</li>
+              <li>Free tier is very capable</li>
+              <li>One-click suggestions</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <div class="cons-title">Cons</div>
+            <ul>
+              <li>Premium needed for full AI</li>
+              <li>Can over-suggest edits</li>
+              <li>Occasional false positives</li>
+            </ul>
+          </div>
+        </div>
+        <a href="https://grammarly.com" target="_blank" rel="noopener" class="tool-cta">Try Grammarly Free →</a>
+      </div>
+    </div>
+
+    <!-- Tool 4 -->
+    <div id="notion-ai" class="tool-review">
+      <div class="tool-review-header">
+        <div class="tool-rank">#4</div>
+        <div class="tool-logo-lg">💡</div>
+        <div class="tool-header-info">
+          <div class="tool-header-name">Notion AI</div>
+          <div class="tool-header-tagline">Best for project organization + writing</div>
+        </div>
+        <div class="tool-badges">
+          <span class="badge badge-paid">Paid Add-on</span>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <p>If you already use Notion to manage your freelance projects, adding Notion AI is a game-changer. It can summarize your meeting notes, generate project templates, write action items, and turn bullet points into polished client-ready documents — all without leaving your workspace.</p>
+        <p><strong>Best for:</strong> Freelancers who manage multiple projects and clients. Huge time-saver for documentation and project briefs.</p>
+        <div class="pros-cons">
+          <div class="pros">
+            <div class="pros-title">Pros</div>
+            <ul>
+              <li>Integrated into your workflow</li>
+              <li>Great at summarizing notes</li>
+              <li>Generates project templates</li>
+              <li>Works on any Notion page</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <div class="cons-title">Cons</div>
+            <ul>
+              <li>Requires Notion (paid)</li>
+              <li>Not standalone</li>
+              <li>Add-on cost on top of Notion</li>
+            </ul>
+          </div>
+        </div>
+        <a href="https://notion.so" target="_blank" rel="noopener" class="tool-cta">Try Notion AI →</a>
+      </div>
+    </div>
+
+    <!-- Tool 5 -->
+    <div id="otter" class="tool-review">
+      <div class="tool-review-header">
+        <div class="tool-rank">#5</div>
+        <div class="tool-logo-lg">🎙️</div>
+        <div class="tool-header-info">
+          <div class="tool-header-name">Otter.ai</div>
+          <div class="tool-header-tagline">Best for client meeting transcription</div>
+        </div>
+        <div class="tool-badges">
+          <span class="badge badge-free">Free Tier</span>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <p>Otter.ai automatically transcribes your client calls, flags action items, and generates meeting summaries. As a freelancer, this means you can focus on the conversation — not on frantically taking notes — and send clients a clean summary within minutes of the call ending.</p>
+        <p><strong>Best for:</strong> Client discovery calls, project kickoff meetings, and any call where you need a written record.</p>
+        <div class="pros-cons">
+          <div class="pros">
+            <div class="pros-title">Pros</div>
+            <ul>
+              <li>Auto-joins Zoom/Meet calls</li>
+              <li>Action item detection</li>
+              <li>Free tier: 300 mins/month</li>
+              <li>Searchable transcripts</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <div class="cons-title">Cons</div>
+            <ul>
+              <li>Accuracy varies by accent</li>
+              <li>Free tier has limits</li>
+              <li>Needs permission from clients</li>
+            </ul>
+          </div>
+        </div>
+        <a href="https://otter.ai" target="_blank" rel="noopener" class="tool-cta">Try Otter.ai Free →</a>
+      </div>
+    </div>
+
+    <!-- Quick tip -->
+    <div class="tip-box">
+      <div class="tip-box-title">💡 Pro tip: The 3-tool freelancer stack</div>
+      <p>Most successful freelancers don't use 12 tools — they master 3. Our recommended starter stack: <strong>ChatGPT</strong> (drafting and brainstorming) + <strong>Grammarly</strong> (polishing everything) + <strong>Otter.ai</strong> (client calls). All three have strong free tiers. Get good at these before adding more.</p>
+    </div>
+
+    <!-- Summary CTA -->
+    <div id="summary" class="prose">
+      <h2>The bottom line</h2>
+      <p>The best AI tools for freelancers are the ones you'll actually use every day. Start with ChatGPT or Claude for drafting, add Grammarly to polish your writing, and use Otter.ai for your client calls. That stack alone can save you 5–10 hours a week.</p>
+      <p>As your workflow matures, layer in tools specific to your niche — designers can add Canva AI, developers can add GitHub Copilot, writers can add Jasper. But don't try to adopt everything at once.</p>
+    </div>
+
+    <!-- Related Pages -->
+    <div class="related">
+      <h3>Explore other professions →</h3>
+      <div class="related-grid">
+        <a href="ai-tools-for-students.html" class="related-card">
+          <span class="related-icon">🎓</span>
+          <div>
+            <div class="related-name">AI for Students</div>
+            <div class="related-desc">Research, writing & studying smarter</div>
+          </div>
+        </a>
+        <a href="ai-tools-for-marketers.html" class="related-card">
+          <span class="related-icon">📣</span>
+          <div>
+            <div class="related-name">AI for Marketers</div>
+            <div class="related-desc">SEO, ads, email & social content</div>
+          </div>
+        </a>
+        <a href="ai-tools-for-developers.html" class="related-card">
+          <span class="related-icon">💻</span>
+          <div>
+            <div class="related-name">AI for Developers</div>
+            <div class="related-desc">Coding assistants & debuggers</div>
+          </div>
+        </a>
+        <a href="ai-tools-for-content-creators.html" class="related-card">
+          <span class="related-icon">🎬</span>
+          <div>
+            <div class="related-name">AI for Content Creators</div>
+            <div class="related-desc">Script, edit & grow your channel</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer style="position:relative;z-index:1;padding:32px 5%;border-top:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+    <a href="../index.html" style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;background:linear-gradient(135deg,#7c5cfc,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;">AIJobTools</a>
+    <p style="font-size:13px;color:#4a4963;">© 2026 AIJobTools · Best AI tools by profession</p>
+  </footer>
+</body>
+</html>
