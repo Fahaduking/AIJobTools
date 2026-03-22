@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aijobtools.github.io/sitemap.xml
+Sitemap: https://fahaduking.github.io/AIJobTools/sitemap.xml
